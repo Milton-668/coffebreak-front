@@ -1,0 +1,39 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col pr-5 border-left">
+      <div class="d-flex justify-content-between">
+        <h3>Nossos Produtos</h3>
+        <p class="text-muted font-weight-light">6 produtos</p>
+      </div>
+      <div class="row mt-5">
+        <div
+          class="card border-0 mx-4"
+          style="width: 18rem"
+          *ngFor="let product of products"
+        >
+          <img
+            src="{{ product.image }}"
+            class="card-img-top"
+            alt="{{ product.name }}"
+          />
+          <div class="card-body">
+            <p class="card-title mb-0">{{ product.name }}</p>
+            <strong class="card-text">
+              {{
+                product.preco.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL"
+                })
+              }}
+            </strong>
+            <a
+              [routerLink]="['/detail', product.id]"
+              class="btn btn-danger col-12 mt-3"
+              >Ver Produto</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
